@@ -15,7 +15,7 @@ Have fun
 
 # Available routes
 - Posts
-- `GET /api/posts`
+    - `GET /api/posts`
     - `GET /api/posts/{post}`
     - `POST /api/posts`
     - `PUT/PATCH /api/posts/{post}`
