@@ -18,7 +18,6 @@ class TodoResource extends JsonResource
             'id' => $this->id,
             'title' => $this->title,
             'completed' => $this->completed,
-            'owner' => $this->author->name,
             'created_at' => (string) $this->created_at,
             'updated_at' => (string) $this->updated_at,
             'view' => route('todos.show', $this->id),

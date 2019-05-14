@@ -21,4 +21,5 @@ Route::namespace('Api')->group(function() {
     Route::apiResource('posts', 'PostController');
     Route::apiResource('todos', 'TodoController');
     Route::apiResource('people', 'PeopleController');
+    Route::patch('todo/complete/{todo}', 'TodoController@toggleComplete')->name('todo.complete');
 });

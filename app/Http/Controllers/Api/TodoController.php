@@ -12,7 +12,7 @@ class TodoController extends Controller
     // Display a listing of the resource.
     public function index()
     {
-        $todos = Todo::latest()->paginate(10);
+        $todos = Todo::latest('created_at')->paginate(20);
         return TodoResource::collection($todos);
     }
 
@@ -43,7 +43,15 @@ class TodoController extends Controller
         ]);
         $todo->title = $request->title;
         $todo->save();
-        return response()->json(['message' => 'Resource Updated','created' => $todo], 200);
+        return response()->json(['message' => 'Resource Updated','updated' => $todo], 200);
+    }
+
+    // Update the specified resource in storage.
+    public function toggleComplete(Todo $todo)
+    {
+        $todo->completed = !$todo->completed;
+        $todo->save();
+        return response()->json(['message' => 'Resource Updated','updated' => $todo], 200);
     }
 
     // Remove the specified resource from storage.
